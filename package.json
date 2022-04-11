@@ -1,0 +1,28 @@
+{
+  "name": "app-for-diplom",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sorokina-Anna/App-for-diplom.git"
+  },
+  "author": "Sorokina Anna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sorokina-Anna/App-for-diplom/issues"
+  },
+  "homepage": "https://github.com/Sorokina-Anna/App-for-diplom#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
