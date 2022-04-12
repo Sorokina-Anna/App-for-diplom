@@ -1,7 +1,7 @@
 const express = require ('express')
-const mysql = require ('mysql2')
 const exphbs = require ('express-handlebars')
 const todoRoutes = require ('./routes/todos')
+const db = require ('./settings/dbConfig')
 
 const PORT = process.env.PORT || 3000
 
@@ -19,17 +19,19 @@ app.use (todoRoutes)
 
 async function start () {
     try {
-        const connection = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            database: "diplom",
-            password: "lbgkjvxtr2022"
+        await db.connect ((err) => {
+            if (err) {
+                return console.log ('err')
+            } else {
+                return console.log ('БД подключена успешно')
+            } 
         })
         app.listen (PORT, () => {
             console.log ('Сервер запущен')
         })
+        }   
 
-    } catch (e) {
+     catch (e) {
         console.log(e)
     }
 }
