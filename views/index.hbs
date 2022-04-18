@@ -1,1 +1,26 @@
 <h2>Главная страница</h2>
+
+{{#if tasks.length}}
+<ul>
+    {{#each tasks}}
+        <li class = "todo">
+         <label>
+             {{#if completed}}
+                <input type ="checkbox" checked>
+                <span class = "completed">{{task}}</span>
+             {{else}}
+                <input type ="checkbox">
+                <span>{{task}}</span>
+             {{/if}}
+             <button class = "btn btn-small">Сохранить</button>
+         </label>   
+        </li>
+
+
+    {{/each}}
+
+</ul>
+
+{{else}}
+<p>Дел нет!</p>
+{{/if}}

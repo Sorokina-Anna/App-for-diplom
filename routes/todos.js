@@ -1,10 +1,13 @@
 const {Router} = require ('express')
 const router = Router()
+const Task = require ('../models/Task')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const todos = await Task.getAll({})
     res.render ('index', {
         title: 'Todos List',
-        isIndex: true
+        isIndex: true,
+        todos
     })
 })
 
