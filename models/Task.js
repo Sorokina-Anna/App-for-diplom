@@ -1,32 +1,29 @@
 const db = require ('../settings/dbConfig')
-const Task = function(task) { //конструктор нового дела
-    this.task = task.task;
-    this.task = task.completed;
-  };
-
-  Task.create = (newTask, result) => {
-    db.query("INSERT INTO todos SET ?", newTask, (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(err, null);
-        return;
-      }
-      console.log("Дело сделано", { id: res.insertId, ...newTask });
-     // result(null, { id: res.insertId, ...newTask });
-     });
-  };
-
-  Task.getAll = result => {
-    db.query("SELECT * FROM todos", (err, res) => {
+/*Task.create = (newTask, result) => {
+  db.query("INSERT INTO todos SET ?", newTask, (err, res) => {
     if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+    console.log("Дело сделано", { id: res.insertId, ...newTask });
+   // result(null, { id: res.insertId, ...newTask });
+   });
+};*/
+
+module.exports.getAll = async() => {
+  let result
+  result = await db.promise().query("SELECT * FROM todos").then(([rows, fields, values]) => {
+    /*if (err) {
     console.log("error: ", err);
     result(null, err);
     return;
-    }
-    console.log("tasks: ", res);
-    return (res)
+    }*/
+    console.log("tasks: ", rows);
+    return rows
+    //result = res
+  })
 
-  });
+console.log(result)
+return result
 }
-
-module.exports = (Task)

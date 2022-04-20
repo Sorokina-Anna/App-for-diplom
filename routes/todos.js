@@ -3,12 +3,12 @@ const res = require('express/lib/response')
 const router = Router()
 const Task = require ('../models/Task')
 const connection = require ('../settings/dbConfig')
+const querys = require('../models/Task')
 
 
 router.get('/', async (req, res) => {
-    
-    let todos = new Array()
-    todos = await Task.getAll({})
+    let todos = await querys.getAll()
+    console.log ('Это наш', todos)
 
    res.render ('index', {
         title: 'Todos List',
