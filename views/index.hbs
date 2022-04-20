@@ -1,13 +1,13 @@
 <h2>Главная страница</h2>
 
-{{#if tasks.length}}
+{{#if tasks.lenght}}
 <ul>
     {{#each tasks}}
         <li class = "todo">
          <label>
              {{#if completed}}
                 <input type ="checkbox" checked>
-                <span class = "completed">{{task}}</span>
+                <span class = "completed">{{tasks}}</span>
              {{else}}
                 <input type ="checkbox">
                 <span>{{task}}</span>
@@ -15,12 +15,10 @@
              <button class = "btn btn-small">Сохранить</button>
          </label>   
         </li>
-
-
     {{/each}}
 
 </ul>
 
 {{else}}
-<p>Дел нет!</p>
+<p>Дел нет!  {{tasks.lenght}}</p>
 {{/if}}

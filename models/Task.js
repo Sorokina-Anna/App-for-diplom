@@ -1,4 +1,4 @@
-const db = require ('mysql2')
+const db = require ('../settings/dbConfig')
 const Task = function(task) { //конструктор нового дела
     this.task = task.task;
     this.task = task.completed;
@@ -23,8 +23,8 @@ const Task = function(task) { //конструктор нового дела
     result(null, err);
     return;
     }
+    //let tasks = res
     console.log("tasks: ", res);
-    result(null, res);
   });
 }
 

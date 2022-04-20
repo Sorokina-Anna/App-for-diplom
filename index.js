@@ -2,6 +2,7 @@ const express = require ('express')
 const exphbs = require ('express-handlebars')
 const todoRoutes = require ('./routes/todos')
 const db = require ('./settings/dbConfig')
+const bodyParser = require('body-parser')
 
 const PORT = process.env.PORT || 3000
 
