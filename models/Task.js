@@ -12,7 +12,7 @@ const Task = function(task) { //конструктор нового дела
         return;
       }
       console.log("Дело сделано", { id: res.insertId, ...newTask });
-      result(null, { id: res.insertId, ...newTask });
+     // result(null, { id: res.insertId, ...newTask });
      });
   };
 
@@ -23,8 +23,9 @@ const Task = function(task) { //конструктор нового дела
     result(null, err);
     return;
     }
-    //let tasks = res
     console.log("tasks: ", res);
+    return (res)
+
   });
 }
 
