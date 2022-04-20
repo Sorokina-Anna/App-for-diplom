@@ -1,13 +1,13 @@
 <h2>Главная страница</h2>
 
-{{#if tasks.lenght}}
+{{#if todos.lenght}}
 <ul>
-    {{#each tasks}}
+    {{#each todos}}
         <li class = "todo">
          <label>
              {{#if completed}}
                 <input type ="checkbox" checked>
-                <span class = "completed">{{tasks}}</span>
+                <span class = "completed">{{task}}</span>
              {{else}}
                 <input type ="checkbox">
                 <span>{{task}}</span>
