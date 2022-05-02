@@ -8,8 +8,6 @@ const querys = require('../models/Task')
 
 router.get('/', async (req, res) => {
     let todos = await querys.getAll()
-    console.log ('Это наш', todos)
-
    res.render ('index', {
         title: 'Todos List',
         isIndex: true,
@@ -24,12 +22,15 @@ router.get ('/create', (req, res) => {
     })
 })
 
-/*router.post('/create', async (req, res) => {
-    const todo = new Task ({
+router.post('/create', async (req, res) => {
+    const deal = new Task ({
         task: req.body.task
     })
+   
+    await deal.create (deal.task)
+    //await console.log (req.body.task)
 
-    await todo.create(todo.task)
+    //await querys.create(todo.task)
     res.redirect('/')
 })
 
