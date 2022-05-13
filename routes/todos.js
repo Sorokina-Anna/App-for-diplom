@@ -24,24 +24,24 @@ router.get ('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const deal = new Task ({
-        task: req.body.task
+        task: req.body.task,
     })
    
     await deal.create (deal.task)
-    //await console.log (req.body.task)
-
-    //await querys.create(todo.task)
     res.redirect('/')
 })
 
-/* На будущее
 router.post ('/complete', async (req, res) => {
-    const todo = await Task.findById (req.body.id)
-    todo.completed = !!req.body.completed
-    await todo.save()
-
+    querys.save (req.body.id, Boolean(req.body.completed))
     res.redirect ('/')
 })
-*/
+
+router.post ('/deleteDeal', async (req, res) => {
+    querys.delete (req.body.id)
+    res.redirect ('/')
+})
+
+
+
 module.exports = router
 

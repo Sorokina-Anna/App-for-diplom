@@ -1,8 +1,9 @@
 const db = require ('../settings/dbConfig')
 
 module.exports = class Task {
-  constructor (task) {
+  constructor (task, completed) {
     this.task = task
+    
   }
 
   create = (newTask) => {
@@ -14,7 +15,6 @@ module.exports = class Task {
       console.log("Дело сделано", { id: res.insertId, ...newTask });
      });
 }
-  
 };
 
 module.exports.getAll = async() => {
@@ -25,5 +25,20 @@ module.exports.getAll = async() => {
   })
 return result
 }
+
+module.exports.save = (id, completed) => {
+  let current_id = id
+  let current_completed = completed
+  const update_completed = "UPDATE todos SET completed = ? WHERE id = ?"
+  db.query (update_completed, [current_completed, current_id])
+
+}
+
+module.exports.delete = (id) => {
+  let current_id = id
+  const delete_ = "DELETE from todos WHERE id = ?"
+  db.query (delete_, current_id)
+}
+
 
 

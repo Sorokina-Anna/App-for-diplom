@@ -13,11 +13,13 @@
                 <input type ="checkbox" name="completed">
                 <span>{{task}}</span>
              {{/if}}
-             <input type = "hidden" value = "{{_id}}" name = "id">
+             <input type = "hidden" value = "{{id}}" name = "id">
              <button class = "btn btn-small" type="submit">Сохранить</button>
-             <button class = "btn btn-small" type ="submit">Удалить</button>
-         </label>   
-        </form>    
+        </form>
+        <form action ="/deleteDeal" method = "post">
+            <button class = "btn btn-small" type="submit">Удалить</button>
+        </form>  
+            </label>    
         </li>
     {{/each}}
 
