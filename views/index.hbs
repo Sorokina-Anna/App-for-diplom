@@ -4,8 +4,8 @@
 <ul>
     {{#each todos}}
         <li class = "todo">
-        <form action="/complete" method="post">
-             <label>
+        <label>
+            <form action="/complete" method="post">
              {{#if completed}}
                 <input type ="checkbox" checked name="completed">
                 <span class = "completed">{{task}}</span>
@@ -15,11 +15,11 @@
              {{/if}}
              <input type = "hidden" value = "{{id}}" name = "id">
              <button class = "btn btn-small" type="submit">Сохранить</button>
-        </form>
-        <form action ="/deleteDeal" method = "post">
-            <button class = "btn btn-small" type="submit">Удалить</button>
-        </form>  
-            </label>    
+            </form>
+            <form action ="/deleteDeal" method = "post">
+                <button class = "btn btn-small" type="submit">Удалить</button>
+            </form>  
+        </label>    
         </li>
     {{/each}}
 

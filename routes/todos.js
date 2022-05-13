@@ -37,10 +37,11 @@ router.post ('/complete', async (req, res) => {
 })
 
 router.post ('/deleteDeal', async (req, res) => {
+    console.log (req.body.id)
     querys.delete (req.body.id)
     res.redirect ('/')
-})
-
+    })
+    
 
 
 module.exports = router
