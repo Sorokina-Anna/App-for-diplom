@@ -1,9 +1,10 @@
 const db = require ('../settings/dbConfig')
 
 module.exports = class Task {
-  constructor (task, completed) {
+  constructor (task, StartTime, EndTime) {
     this.task = task
-    
+    this.StartTime = StartTime
+    this.EndTime = EndTime
   }
 
   create = (newTask) => {

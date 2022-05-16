@@ -23,8 +23,11 @@ router.get ('/create', (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
+    console.log (req.body.starttime)
     const deal = new Task ({
         task: req.body.task,
+        StartTime: req.body.starttime,
+        EndTime: req.body.endtime
     })
    
     await deal.create (deal.task)
@@ -37,10 +40,9 @@ router.post ('/complete', async (req, res) => {
 })
 
 router.post ('/deleteDeal', async (req, res) => {
-    console.log (req.body.id)
     querys.delete (req.body.id)
     res.redirect ('/')
-    })
+})
     
 
 
