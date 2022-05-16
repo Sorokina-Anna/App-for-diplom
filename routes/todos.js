@@ -24,11 +24,13 @@ router.get ('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     console.log (req.body.starttime)
+    console.log (req.body.endtime)
     const deal = new Task ({
         task: req.body.task,
         StartTime: req.body.starttime,
         EndTime: req.body.endtime
     })
+    
    
     await deal.create (deal.task)
     res.redirect('/')

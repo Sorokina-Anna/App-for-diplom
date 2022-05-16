@@ -22,9 +22,13 @@ module.exports.getAll = async() => {
   let result
   result = await db.promise().query("SELECT * FROM todos").then(([rows, fields, values]) => {
     console.log("tasks: ", rows);
+    rows.forEach(row => {
+      row.StartTime = row.StartTime.slice(0,5)
+      row.EndTime = row.EndTime.slice(0,5)
+    }) 
     return rows
   })
-return result
+  return result
 }
 
 module.exports.save = (id, completed) => {
