@@ -6,17 +6,17 @@
         <li class = "todo">
         <label>
             <form action="/complete" method="post">
-             {{#if completed}}
-                <input type ="checkbox" checked name="completed">
-                <span class = "completed">{{task}}</span>
-             {{else}}
+                {{#if completed}}
+                    <input type ="checkbox" checked name="completed">
+                    <span class = "completed">{{task}}</span>
+                {{else}}
                 <input type ="checkbox" name="completed">
                 <span>{{task}}</span>
-             {{/if}}
-             <time>{{StartTime}}</time>
-             <time>{{EndTime}}</time>
-             <input type = "hidden" value = {{id}} name = "id">
-             <button class = "btn btn-small" type="submit">Сохранить</button>
+                {{/if}}
+                <time>{{StartTime}} -</time>
+                <time>{{EndTime}}</time>
+                <input type = "hidden" value = {{id}} name = "id">
+                <button class = "btn btn-small" type="submit">Сохранить</button>
             </form>
             <form action ="/deleteDeal" method = "post">
                 <input type = "hidden" value = {{id}} name = "id">
@@ -29,5 +29,5 @@
 </ul>
 
 {{else}}
-<p>Дел нет!</p>
+<p>На сегодня дел нет!</p>
 {{/if}}

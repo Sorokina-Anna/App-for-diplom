@@ -8,7 +8,7 @@ const querys = require('../models/Task')
 
 router.get('/', async (req, res) => {
     let todos = await querys.getAll()
-   res.render ('index', {
+    res.render ('index', {
         title: 'Todos List',
         isIndex: true,
         todos
@@ -23,8 +23,6 @@ router.get ('/create', (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
-    console.log (req.body.starttime)
-    console.log (req.body.endtime)
     const deal = new Task ({
         task: req.body.task,
         StartTime: req.body.starttime,
@@ -45,6 +43,8 @@ router.post ('/deleteDeal', async (req, res) => {
     querys.delete (req.body.id)
     res.redirect ('/')
 })
+
+
     
 
 
