@@ -10,11 +10,13 @@
                     <input type ="checkbox" checked name="completed">
                     <span class = "completed">{{task}}</span>
                 {{else}}
-                <input type ="checkbox" name="completed">
-                <span>{{task}}</span>
+                    <input type ="checkbox" name="completed">
+                    <span>{{task}}</span>
                 {{/if}}
-                <time>{{StartTime}} -</time>
-                <time>{{EndTime}}</time>
+                <span id="sss" value = {{StartTime}}>{{StartTime}}</span>
+                <span>{{EndTime}}</span>
+                <span id="timer">{{timer}}</span>
+                <script src = "/timer.js"></script>
                 <input type = "hidden" value = {{id}} name = "id">
                 <button class = "btn btn-small" type="submit">Сохранить</button>
             </form>
@@ -25,6 +27,10 @@
         </label>    
         </li>
     {{/each}}
+<p>Посмотреть задачи на другой день</p>
+<form action="/another_date" method="get">
+    <input type="date" name = "concrete_date">
+</form>
 
 </ul>
 

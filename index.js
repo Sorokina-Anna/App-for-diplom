@@ -1,5 +1,6 @@
 const express = require ('express')
 const exphbs = require ('express-handlebars')
+// const hbs = require("hbs");
 const todoRoutes = require ('./routes/todos')
 const db = require ('./settings/dbConfig')
 const path = require ('path')
@@ -10,18 +11,26 @@ const PORT = process.env.PORT || 3000
 const app = express ()
 const hbs = exphbs.create ({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    helpers: {
+        foo() { return 'FOO!'; }
+    }
 })
 
+// app.set("view engine", "hbs");
 app.engine('hbs', hbs.engine)
 app.set ('view engine', 'hbs')
 app.set('views', 'views')
+
+
 
 app.use(bodyParser.urlencoded ({extended: true}))
 
 
 app.use(express.urlencoded ({ extended: true}))
 app.use (express.static(path.join(__dirname, 'public')))
+
+app.use (express.static(path.join(__dirname, 'script')))
 
 
 app.use (todoRoutes)
